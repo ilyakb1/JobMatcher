@@ -55,6 +55,12 @@ Match priority:
 			
 
 # Setup instruction
+1) Create Directory C:\1, 
+2) Navigate to this directory in PowerShell.
+3) Run command: git clone https://github.com/ilyakb1/JobMatcher.git
+4) Cd .\JobMatcher\src
+5) Run "dotnet run"
+6) Open http://localhost:5000
 
 # Testing instructions
 1) Run WebApi tests 
@@ -64,13 +70,6 @@ Go to .\JobMatcher\JobMatcher.Tests folder and run "dotnet test"
 2) Run Jasmin tests
 
 Go to .\JobMatcher\src\ClientApp folder and run "npm run test"
-	
-# Deployment instructions
-1) Run solution
-
-Go to .\JobMatcher\src folder and run "dotnet run"
-
-Open page  http://localhost:5000 in browser
 
 # Job Matching Result
 ![picture](docs/img/jobmatcher-result.gif)
