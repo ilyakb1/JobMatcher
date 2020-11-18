@@ -1,0 +1,20 @@
+<h1 id="tableLabel">Jobs and best matched candidate</h1>
+
+<p *ngIf="!JobWithCandidates"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="JobWithCandidates">
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Job</th>
+      <th>Candidate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let jobWithCandidate of JobWithCandidates">
+      <td>{{ jobWithCandidate.job.company }}</td>
+      <td>{{ jobWithCandidate.job.name }}</td>
+      <td>{{ jobWithCandidate.candidate.name }}</td>
+    </tr>
+  </tbody>
+</table>
