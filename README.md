@@ -5,7 +5,7 @@
 # Solution design
 ![picture](docs/img/solution_design.gif)
 
-# Page mockup
+# Page mock-up
 ![picture](docs/img/page_mockup.gif)
 
 # Job to Candidate matching logic
@@ -48,7 +48,7 @@ Match priority:
 		Find candidates: Candidate second skill = Job first skill
 
 	3) Not found: 
-		Continue with Candidate third, forth,... skill
+		Continue with Candidate third, fourth,... skill
 		
 	4) Not found 
 			Return "Candidate not found"
@@ -58,24 +58,28 @@ Match priority:
 
 # Testing instructions
 1) Run WebApi tests 
+
 Go to .\JobMatcher\JobMatcher.Tests folder and run "dotnet test"
 
 2) Run Jasmin tests
+
 Go to .\JobMatcher\src\ClientApp folder and run "npm run test"
 	
 # Deployment instructions
 1) Run solution
+
 Go to .\JobMatcher\src folder and run "dotnet run"
-Open page  http://localhost:5000   in browser
+
+Open page  http://localhost:5000 in browser
 
 # Job Matching Result
 ![picture](docs/img/jobmatcher-result.gif)
 
-#To Do
-1) Add Backend tests to conteroller
-2) Group jobbs by company
+# To Do
+1) Add Backend tests to controller
+2) Group jobs by company
 3) Add front end unit test
 4) Add Caching to job matching
-5) Do algorithm more eficient for large number jobs, candidates and skills
+5) Do algorithm more efficient for large number jobs, candidates and skills
 
 
