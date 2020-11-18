@@ -71,4 +71,11 @@ Open page  http://localhost:5000   in browser
 # Job Matching Result
 ![picture](docs/img/jobmatcher-result.gif)
 
+#To Do
+1) Add Backend tests to conteroller
+2) Group jobbs by company
+3) Add front end unit test
+4) Add Caching to job matching
+5) Do algorithm more eficient for large number jobs, candidates and skills
+
 
