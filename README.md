@@ -22,10 +22,10 @@ A database solution, e.g. MSSQL Server, shouldn’t be required.
 
 
 # Solution design
-![picture](docs/img/solution_design.gif=300x)
+![solution desing](docs/img/solution_design.gif =300x)
 
 # Page mockup
-![picture](docs/img/page_mockup.gif=500x)
+![page mockup](docs/img/page_mockup.gif =500x)
 
 # Job to Candidate matching logic
 
