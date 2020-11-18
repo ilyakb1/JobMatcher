@@ -13,8 +13,8 @@
   <tbody>
     <tr *ngFor="let jobWithCandidate of JobWithCandidates">
       <td>{{ jobWithCandidate.job.company }}</td>
-      <td>{{ jobWithCandidate.job.name }}</td>
-      <td>{{ jobWithCandidate.candidate.name }}</td>
+      <td>{{ jobWithCandidate.job.name }} - {{ jobWithCandidate.job.jobId }}<br /><i>{{ jobWithCandidate.job.skills }}</i></td>
+      <td>{{ jobWithCandidate.candidate.name }} - {{ jobWithCandidate.candidate.candidateId }}<br /><i>{{ jobWithCandidate.candidate.skillTags }}</i></td>
     </tr>
   </tbody>
 </table>
