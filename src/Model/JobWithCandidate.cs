@@ -1,5 +1,3 @@
-using System;
-
 namespace JobMatcher
 {
 	public class JobWithCandidate
@@ -7,7 +5,5 @@ namespace JobMatcher
 		public Job Job { get; set; }
 
 		public Candidate Candidate { get; set; }
-
-		public string Bla => "Test";
 	}
 }

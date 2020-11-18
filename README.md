@@ -18,6 +18,7 @@ Candidate 2 Skills: Skill 1, Skill 5, Skill 6
 Candidate 2 Skills: Skill 5, Skill 6, Skill 1
 
 Match priority: 
+	
 	1) Find candidates: Candidate first skill = Job first skill
 	
 		1.1 Found. 
