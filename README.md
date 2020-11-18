@@ -1,13 +1,13 @@
-#Requirements
+# Requirements
 
-JobAdder Coding Challenge
+**JobAdder Coding Challenge**
+
 For this exercise, we’d like you to create a web application that will help a recruiter automatically match candidates to open jobs. 
 Within your UI, (the form the interface takes is open to your interpretation), for each job, display a candidate that is the most-qualified to fill that job.
 There are many approaches with how this task could be achieved but it will be up to you to analyse and determine what you think is a good way to match a candidate to a job and present it to the UI.
 API documentation can be found in the following location: https://jobadder1.docs.apiary.io/# 
 
-----
-Notes
+**Notes**
 1.	The solution should take between 3-4 hours. Time-box if you can’t complete the challenge in a reasonable timeframe. Your solution does not have to be code and feature complete, but will serve as the basis for the final interview.
 
 2.	Add any and all assumptions you make about the problem and/or solution to the README file. Include a brief description of how you decided to match a candidate to a job. 
@@ -22,10 +22,10 @@ A database solution, e.g. MSSQL Server, shouldn’t be required.
 
 
 # Solution design
-![picture](docs/img/solution_design.gif)
+![picture](docs/img/solution_design.gif=x300)
 
 # Page mockup
-![picture](docs/img/page_mockup.gif)
+![picture](docs/img/page_mockup.gif=x500)
 
 # Job to Candidate matching logic
 
