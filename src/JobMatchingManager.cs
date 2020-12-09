@@ -6,45 +6,45 @@ using System.Threading.Tasks;
 
 namespace JobMatcher
 {
-	public class JobMatchingManager
-	{
-		readonly IMatchingService matchingService;
-		readonly ICandidateRepository candidateRepository;
-		readonly IJobRepository jobRepository;
+    public class JobMatchingManager : IJobMatchingManager
+    {
+        readonly IMatchingService matchingService;
+        readonly ICandidateRepository candidateRepository;
+        readonly IJobRepository jobRepository;
 
-		public JobMatchingManager(IMatchingService matchingService, ICandidateRepository candidateRepository, IJobRepository jobRepository)
-		{
-			this.matchingService = matchingService ?? throw new ArgumentNullException(nameof(matchingService));
-			this.candidateRepository = candidateRepository ?? throw new ArgumentNullException(nameof(candidateRepository));
-			this.jobRepository = jobRepository;
-		}
+        public JobMatchingManager(IMatchingService matchingService, ICandidateRepository candidateRepository, IJobRepository jobRepository)
+        {
+            this.matchingService = matchingService ?? throw new ArgumentNullException(nameof(matchingService));
+            this.candidateRepository = candidateRepository ?? throw new ArgumentNullException(nameof(candidateRepository));
+            this.jobRepository = jobRepository;
+        }
 
-		public async Task<JobWithCandidate[]> GetJobWithBestMatchedCandidateAsync()
-		{
+        public async Task<JobWithCandidate[]> GetJobWithBestMatchedCandidateAsync()
+        {
 
-			var candidatesTask = candidateRepository.GetCandidatesAsync();
-			var jobsTask = jobRepository.GetJobsAsync();
+            var candidatesTask = candidateRepository.GetCandidatesAsync();
+            var jobsTask = jobRepository.GetJobsAsync();
 
-			await Task.WhenAll(candidatesTask, jobsTask);
+            await Task.WhenAll(candidatesTask, jobsTask);
 
-			var jobs = jobsTask.Result;
-			var candidates = candidatesTask.Result;
+            var jobs = jobsTask.Result;
+            var candidates = candidatesTask.Result;
 
-			var output = new List<JobWithCandidate>();
-			foreach (var job in jobs)
-			{
-				var bestCandidate = matchingService.Match(job, candidates);
-				var jobWithCandidate = new JobWithCandidate() { Job = job };
-				if (bestCandidate != null)
-				{
-					jobWithCandidate.Candidate = bestCandidate;
-				}
+            var output = new List<JobWithCandidate>();
+            foreach (var job in jobs)
+            {
+                var bestCandidate = matchingService.Match(job, candidates);
+                var jobWithCandidate = new JobWithCandidate() { Job = job };
+                if (bestCandidate != null)
+                {
+                    jobWithCandidate.Candidate = bestCandidate;
+                }
 
-				output.Add(jobWithCandidate);
-			}
+                output.Add(jobWithCandidate);
+            }
 
 
-			return output.ToArray();
-		}
-	}
+            return output.ToArray();
+        }
+    }
 }

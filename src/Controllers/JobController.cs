@@ -1,32 +1,24 @@
-﻿using JobMatcher.Repository;
-using JobMatcher.Services;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace JobMatcher.Controllers
 {
-	[ApiController]
-	[Route("jobs")]
-	public class JobController : ControllerBase
-	{
-		[HttpGet]
-		public async Task<IEnumerable<JobWithCandidate>> Get()
-		{
-			var config = new ConfigurationBuilder()
-									.AddJsonFile("appsettings.json")
-									.Build();
+    [ApiController]
+    [Route("jobs")]
+    public class JobController : ControllerBase
+    {
+        private readonly IJobMatchingManager jobMatchingManager;
 
-			var serviceBaseUrl = config["ServiceBaseUrl"];
-			var httpClient = new HttpClient();
-			var candidateRepository = new CandidateRepository(httpClient, serviceBaseUrl);
-			var jobRepository = new JobRepository(httpClient, serviceBaseUrl);
-			var matchingService = new MatchingService();
+        public JobController(IJobMatchingManager jobMatchingManager)
+        {
+            this.jobMatchingManager = jobMatchingManager ?? throw new System.ArgumentNullException(nameof(jobMatchingManager));
+        }
 
-			var manager = new JobMatchingManager(matchingService, candidateRepository, jobRepository);
-			return await manager.GetJobWithBestMatchedCandidateAsync();
-		}
-	}
+        [HttpGet]
+        public async Task<IEnumerable<JobWithCandidate>> Get()
+        {
+            return await jobMatchingManager.GetJobWithBestMatchedCandidateAsync();
+        }
+    }
 }
